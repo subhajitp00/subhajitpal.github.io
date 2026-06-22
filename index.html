@@ -42,7 +42,7 @@
             backdrop-filter: blur(10px);
         }
         
-        /* The Cutout / Spotlight Overlay */
+        /* The Bulletproof Spotlight Overlay */
         #cutout-overlay {
             position: fixed;
             top: 0;
@@ -51,12 +51,9 @@
             height: 100vh;
             pointer-events: none; /* Lets you click links through the dark layer */
             z-index: 9999;
-            background: rgba(15, 23, 42, 0.75); /* Dark slate overlay */
-            
-            /* The CSS Mask that cuts the transparent hole */
-            -webkit-mask: radial-gradient(circle 200px at var(--x, 50vw) var(--y, 50vh), transparent 0%, transparent 60%, black 100%);
-            mask: radial-gradient(circle 200px at var(--x, 50vw) var(--y, 50vh), transparent 0%, transparent 60%, black 100%);
-            transition: -webkit-mask 0.3s ease, mask 0.3s ease;
+            /* Using a background gradient instead of a mask for 100% browser support */
+            background: radial-gradient(circle 250px at var(--x, 50vw) var(--y, 50vh), transparent 0%, rgba(15, 23, 42, 0.85) 80%);
+            transition: background 0.1s ease-out;
         }
 
         /* Scroll Animation Classes */
@@ -74,8 +71,10 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden">
 
+    <!-- The Spotlight Overlay Element -->
     <div id="cutout-overlay" class="hidden md:block"></div>
 
+    <!-- Navigation -->
     <nav class="fixed w-full glass-card z-50 border-b border-brand-100 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
@@ -91,6 +90,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
             <div class="flex-1 space-y-6 text-center md:text-left reveal-up">
@@ -104,6 +104,7 @@
                     Ph.D. scholar specializing in <strong>Quantum Communication</strong> and <strong>Post-Quantum Cryptography</strong>. Passionate about bridging theoretical foundations with real-world secure network designs.
                 </p>
                 
+                <!-- Contact & Resume Links -->
                 <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                     <a href="mailto:subhajitp00@gmail.com" class="flex items-center gap-2 bg-white border border-brand-200 text-brand-700 px-5 py-2.5 rounded-full shadow-sm hover:border-brand-500 hover:shadow-md transition-all text-sm font-semibold hover-target">
                         <i class="fas fa-envelope"></i> Email Me
@@ -125,12 +126,14 @@
                 </div>
             </div>
             
+            <!-- Profile Image -->
             <div class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-white shadow-2xl overflow-hidden bg-brand-50 flex items-center justify-center flex-shrink-0 ring-4 ring-brand-100 reveal-up" style="transition-delay: 200ms;">
                 <img src="profile.jpg" alt="Subhajit Pal" class="w-full h-full object-cover">
             </div>
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="py-16 bg-white border-t border-brand-50 overflow-hidden">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal-up">
             <h2 class="text-3xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
@@ -148,6 +151,7 @@
         </div>
     </section>
 
+    <!-- Experience Section -->
     <section id="experience" class="py-16 bg-brand-50/50 border-t border-brand-100 overflow-hidden">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal-up">
             <h2 class="text-3xl font-extrabold text-slate-900 mb-8 flex items-center gap-3">
@@ -174,6 +178,7 @@
         </div>
     </section>
 
+    <!-- Education Section -->
     <section id="education" class="py-16 bg-white border-t border-brand-50 overflow-hidden">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-extrabold text-slate-900 mb-8 flex items-center gap-3 reveal-up">
@@ -183,6 +188,7 @@
             
             <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-brand-200 before:via-brand-200 before:to-transparent">
                 
+                <!-- PhD -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active reveal-up">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-brand-500 text-white shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-transform duration-300 hover:scale-110 hover-target">
                         <i class="fas fa-microscope text-sm"></i>
@@ -199,6 +205,7 @@
                     </div>
                 </div>
 
+                <!-- MSc -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active reveal-up">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-slate-200 text-slate-600 shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-transform duration-300 hover:scale-110 hover-target">
                         <i class="fas fa-laptop-code text-sm"></i>
@@ -213,6 +220,7 @@
                     </div>
                 </div>
 
+                <!-- BEd -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active reveal-up">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-slate-200 text-slate-600 shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-transform duration-300 hover:scale-110 hover-target">
                         <i class="fas fa-book-reader text-sm"></i>
@@ -227,6 +235,7 @@
                     </div>
                 </div>
 
+                <!-- BSc -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active reveal-up">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-slate-200 text-slate-600 shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-transform duration-300 hover:scale-110 hover-target">
                         <i class="fas fa-code text-sm"></i>
@@ -245,6 +254,7 @@
         </div>
     </section>
 
+    <!-- Research & Publications -->
     <section id="research" class="py-16 bg-brand-950 text-white relative overflow-hidden">
         <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-brand-800 opacity-20 blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-violet-900 opacity-20 blur-3xl"></div>
@@ -280,9 +290,11 @@
         </div>
     </section>
 
+    <!-- Skills & Certifications -->
     <section id="skills" class="py-16 bg-slate-50 border-t border-brand-100 overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12">
             
+            <!-- Technical Skills -->
             <div class="reveal-up">
                 <h2 class="text-3xl font-extrabold text-slate-900 mb-8 flex items-center gap-3">
                     <div class="w-10 h-10 rounded-lg bg-brand-100 flex items-center justify-center text-brand-600"><i class="fas fa-tools"></i></div>
@@ -290,6 +302,7 @@
                 </h2>
                 
                 <div class="space-y-8">
+                    <!-- Specialized Tech -->
                     <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                         <h4 class="text-sm font-bold text-violet-600 uppercase tracking-wider mb-4 flex items-center gap-2"><i class="fas fa-atom"></i> Specialized & Emerging Tech</h4>
                         <div class="flex flex-wrap gap-2.5">
@@ -301,6 +314,7 @@
                         </div>
                     </div>
 
+                    <!-- Programming -->
                     <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                         <h4 class="text-sm font-bold text-brand-600 uppercase tracking-wider mb-4 flex items-center gap-2"><i class="fas fa-terminal"></i> Programming & Frameworks</h4>
                         <div class="flex flex-wrap gap-2.5">
@@ -314,6 +328,7 @@
                         </div>
                     </div>
 
+                    <!-- Core CS -->
                     <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                         <h4 class="text-sm font-bold text-emerald-600 uppercase tracking-wider mb-4 flex items-center gap-2"><i class="fas fa-server"></i> Core Computer Science</h4>
                         <div class="flex flex-wrap gap-2.5">
@@ -327,6 +342,7 @@
                 </div>
             </div>
 
+            <!-- Certifications -->
             <div class="reveal-up" style="transition-delay: 200ms;">
                 <h2 class="text-3xl font-extrabold text-slate-900 mb-8 flex items-center gap-3">
                     <div class="w-10 h-10 rounded-lg bg-brand-100 flex items-center justify-center text-brand-600"><i class="fas fa-certificate"></i></div>
@@ -376,6 +392,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-brand-950 text-slate-400 py-12 border-t border-brand-900 text-center">
         <div class="max-w-4xl mx-auto px-4 flex flex-col items-center">
             <div class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-violet-400 tracking-tight mb-4">SP.</div>
@@ -388,13 +405,14 @@
         </div>
     </footer>
 
+    <!-- Interactive JavaScript -->
     <script>
-        // --- 1. Cutout Spotlight Logic ---
+        // --- 1. Bulletproof Background Spotlight Logic ---
         const overlay = document.getElementById('cutout-overlay');
 
         if (overlay) {
             document.addEventListener('mousemove', (e) => {
-                // Instantly move the mask to the cursor coordinates
+                // Update the custom CSS variables for X and Y coordinates
                 overlay.style.setProperty('--x', `${e.clientX}px`);
                 overlay.style.setProperty('--y', `${e.clientY}px`);
             });
@@ -403,12 +421,10 @@
             const interactiveElements = document.querySelectorAll('a, button, .hover-target');
             interactiveElements.forEach(el => {
                 el.addEventListener('mouseenter', () => {
-                    overlay.style.webkitMask = 'radial-gradient(circle 280px at var(--x, 50vw) var(--y, 50vh), transparent 0%, transparent 60%, black 100%)';
-                    overlay.style.mask = 'radial-gradient(circle 280px at var(--x, 50vw) var(--y, 50vh), transparent 0%, transparent 60%, black 100%)';
+                    overlay.style.background = 'radial-gradient(circle 350px at var(--x, 50vw) var(--y, 50vh), transparent 0%, rgba(15, 23, 42, 0.85) 80%)';
                 });
                 el.addEventListener('mouseleave', () => {
-                    overlay.style.webkitMask = 'radial-gradient(circle 200px at var(--x, 50vw) var(--y, 50vh), transparent 0%, transparent 60%, black 100%)';
-                    overlay.style.mask = 'radial-gradient(circle 200px at var(--x, 50vw) var(--y, 50vh), transparent 0%, transparent 60%, black 100%)';
+                    overlay.style.background = 'radial-gradient(circle 250px at var(--x, 50vw) var(--y, 50vh), transparent 0%, rgba(15, 23, 42, 0.85) 80%)';
                 });
             });
         }
